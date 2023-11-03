@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <style>
+            p{font-size: 14px; color: white;}
+        </style>
+        <title>김김박이</title>
+        <script src="./index.js"></script>
+        
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="header">
+            <a style="font-family: 'OAGothic-ExtraBold'!important;" href="./index.html">김김박이</a>
+            <div class="icons" style="width: 80%; display: flex; justify-content:flex-end; align-items:center">
+                <a style="font-family: 'OAGothic-ExtraBold'!important;padding-right:10px;" href="https://github.com/201910825">Github</a>
+                <i class="fa fa-bars" style="color: white; font-size: 24px; z-index:5" ></i>
+                </div>
+            </div>
+            <section class="section-1">
+                <div class="context">
+                    <div class="overlay">
+                        <h1 style="z-index: 1; font-weight:600">게임 제목 뭐라하지</h1><br><br>
+                        <div class="game-info"><h2>대충 소개글ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</h2></div>
+                        <button onclick="load()"><h2>Game Play</h2></button>
+                    </div> 
+                </div>
+              
+            </section>
+            <div class="menu hidden">
+                <ul>
+                    <h1 style="text-align: center;">김김박이</h1>
+                    <hr>
+                    <li>
+                        <p>메인페이지</p>
+                    </li>
+                    <li><p>소개</p></li>
+                </ul>
+            </div>
+            
+         
+        
+    </body>
+    <script>
+        
+        const menu_bar = document.querySelector('.fa-bars');//반응형 메뉴창 설정
+        const menu = document.querySelector('.menu');
+        function showMenu()
+        { 
+            menu.classList.remove("hidden");
+        }
+        function closeMenu()
+        {
+            menu.classList.add("hidden");   
+        }
+     
+        menu_bar.addEventListener('click',()=>{
+            if (menu.classList.contains('hidden')) 
+            {
+                showMenu();
+            }
+            else {
+                closeMenu();
+            } 
+        })  
+
+        const searchIcon = document.querySelector('.fa-search');
+        const searchInput = document.querySelector('search');
+        
+       
+    </script>
+</html>

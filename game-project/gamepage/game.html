@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./game.css">
+        
+        
+        
+        <title>게임제목</title>
+        
+    </head>
+    <body>
+        <div class="container">
+            <p style="margin: 30px; font-size: 36px; font-weight: 300" id="monsterName"></p>
+            <div class="health-bar">
+                <div class="health"></div>
+              </div>
+            <div class="monster"> 몬스터</div>
+            <div class="action">
+                <button onclick="Attack()" class="btn-action" id="attack">공격하기</button>
+                <button class="btn-action" id="guard">방어하기</button>
+                <button class="btn-action" id="heal">회복하기</button>
+            </div>
+        </div>
+        <script src="./game.js"></script>
+    </body>
+    
+</html>
