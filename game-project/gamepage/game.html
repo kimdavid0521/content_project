@@ -15,13 +15,29 @@
             <p style="margin: 30px; font-size: 36px; font-weight: 300" id="monsterName"></p>
             <div class="health-bar">
                 <div class="health"></div>
-              </div>
-            <div class="monster"> 몬스터</div>
-            <div class="action">
-                <button onclick="Attack()" class="btn-action" id="attack">공격하기</button>
-                <button class="btn-action" id="guard">방어하기</button>
-                <button class="btn-action" id="heal">회복하기</button>
             </div>
+            <div class="monster" id="monster-motion"><h3>몬스터</h3></div>
+            <div class="action">
+                <div class="character">
+                    여기다 캐릭
+                </div>
+                <div class="action-and-info">
+                    <div class="heal">
+                        <button class="potion" id="potion" onclick="Heal()">
+                            <h3 id="potion-state">포션</h3>
+                        </button> 
+                        <h2 style="color: red;">X</h2> <h2 id="potion-amount"></h2>
+                    </div>
+                    
+                    <div class="char-health">
+                        <div class="char-health-bar"></div>
+                    </div>
+                    <div class="atk-or-def">
+                        <button onclick="Attack()" class="btn-action" id="attack">공격하기</button>
+                        <button onclick="Guard()" class="btn-action" id="guard">방어하기</button>
+                    </div>
+                </div>
+            </div> 
         </div>
         <script src="./game.js"></script>
     </body>

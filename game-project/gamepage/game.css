@@ -23,6 +23,7 @@ body{
     font-family:'DNFForgedBlade';
 }
 
+/* 몬스터 css */
 .monster{
     width: 150px;
     height: 200px;
@@ -50,19 +51,77 @@ body{
     background-color: #ff0000;
     border-radius: 7px; /* 체력 바의 배경색 */
 }
+/* 여기까지 */
 
+/* 플레이어 css */
 .action{
-    position: absolute;
-    bottom: 10%;
-    width: 70%;
+    position: fixed;
+    height: 25%;
+    left: 25%;
+    bottom: 3%;
+    width: 50%;
     display: flex;
     justify-content: space-around;
+    background: linear-gradient(170deg, #140202 30%, #300202 90%, #4d0101);
+    border-radius: 20px;
+    align-items: center;
+}
+.action-and-info{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
 }
 
 .btn-action{
     background-color: black;
     color: red;
-    width: 150px;
-    height: 60px;
+    width: 100px;
+    height: 40px;
     border-radius: 5px;
 }
+.character {
+    width: 20%;
+    height: 90%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.char-health-bar {
+    height: 100%;
+    background-color: #ff0000;
+    border-radius: 7px; /* 체력 바의 배경색 */
+  }
+  
+.char-health {
+    
+    width: 100%;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 7px;
+}
+
+.heal{
+    display: flex;
+    text-align: center;
+    width: 70%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.potion{
+    width: 100px;
+    height: 60px;
+    background-color: white;
+}
+
+.atk-or-def{
+    display: flex;
+    width: 70%;
+    justify-content: space-evenly;
+}
+/* 여기까지 */
