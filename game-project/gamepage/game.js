@@ -22,7 +22,8 @@ const monsters = [
     name: '슬라임 리무르'
   },
 ]
-
+const monster = document.querySelector("#monster-motion");
+monster.style.w
 let floor = 1 //층수
 let isGuarding = false; // 방어 상태를 나타내는 변수
 let isClear = false; //몬스터를 죽였는가를 나타내는 변수
@@ -47,8 +48,10 @@ function initMonHealth() {
 // Attack 함수 정의
 document.addEventListener("DOMContentLoaded", function () {
   // 몬스터 이름 초기 설정
+  document.querySelector("#monster-motion").innerHTML = '<img src="../img/monster1.png" alt="대체 텍스트">';
   let currentMonsterIndex = floor - 1;
   document.getElementById('monsterName').textContent = monsters[currentMonsterIndex].name;
+  
   initMonHealth(); // 몬스터 체력바 초기 설정 호출
 });
 
@@ -111,9 +114,12 @@ function MonsterAttack() {
   let currentMonsterIndex = floor - 1;
   let currentMonster = monsters[currentMonsterIndex];
   // Schedule the monster's attack
+  
   if (currentMonster.currentHealth > 0) {
     monsterAttackTimeout = setTimeout(function() {
       // 몬스터의 공격 로직
+      console.log("공격모션")
+
       if (isGuarding === false) {
         playerCurrentHealth -= currentMonster.damage;
         console.log("몬스터가 플레이어에게 " + currentMonster.damage + "의 데미지를 입혔습니다.");
@@ -129,23 +135,27 @@ function MonsterAttack() {
         }
       }
       // 플레이어 체력바 업데이트
+      
+      document.querySelector("#monster-motion").innerHTML = '<img src="../img/monster1-attack.png" alt="대체 텍스트">';
       updatePlayerHealthBar();
-      document.querySelector("#monster-motion").innerHTML = "<h3>몬스터<h3>";
+      
     }, 500);
+    
   }
   else return;
 
 
   // 몬스터가 공격하기 0.5초 전에 알림
   console.log("몬스터가 공격합니다!");
-  document.querySelector("#monster-motion").innerHTML = "<h3>공격한다잇!<h3>";
+  
+  document.querySelector("#monster-motion").innerHTML = '<img src="../img/monster1-ready.png" alt="대체 텍스트">';
 }
 
 // 몬스터 공격 간격 설정
 function setMonsterAttackInterval() {
   const minInterval = 1000; // 1초
   const maxInterval = 4000; // 4초
-
+ 
   // 무작위 공격 간격 생성(1초에서 4초)
   const attackInterval = Math.floor(Math.random() * (maxInterval - minInterval + 1) + minInterval);
 

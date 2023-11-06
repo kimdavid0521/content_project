@@ -24,6 +24,10 @@ body{
 }
 
 /* 몬스터 css */
+#monster-motion img {
+    max-width: 100%; 
+}
+
 .monster{
     width: 150px;
     height: 200px;
@@ -111,6 +115,7 @@ body{
     width: 70%;
     justify-content: space-evenly;
     align-items: center;
+    color: white;
 }
 
 .potion{
