@@ -1,8 +1,8 @@
-let characterWhereX = 0;
-let characterWhereY = 0;
+let characterWhereX = 600;
+let characterWhereY = 600;
 const character = document.getElementById('character');
-let x = 0;
-let y = 0;
+let x = 600;
+let y = 600;
 
     document.addEventListener('keydown', function (event) {
       
@@ -36,4 +36,7 @@ let y = 0;
       character.style.left = x + 'px';
       character.style.top = y + 'px';
       console.log(characterWhereX,characterWhereY);
+      if(characterWhereX===600 && characterWhereY===600){
+        
+      }
     });

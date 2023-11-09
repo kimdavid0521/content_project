@@ -211,10 +211,10 @@ function Attack() {
     let floorClear = confirm(floor + "층을 클리어 하셨습니다. 다음 층으로 넘어가시겠습니까?");
     if (floorClear === true) {
        alert((floor+1)+"층으로 입장합니다.")
-       alert("3초뒤에 입장합니다. 준비하세요.!");
+       alert("앗! 휴식터로 이동합니다")
         setTimeout(function () {
-        moveToNextFloor();
-      }, 3000);
+        subGamepage()
+      }, 2000);
     }
   } else {
     
@@ -252,6 +252,13 @@ function Heal() {
     document.getElementById('potion').disabled = true;
     document.getElementById('potion-state').innerHTML="<h1>X</h1>"
   }
+}
+
+function subGamepage(){
+    const splashScreen = document.querySelector(".container");
+    splashScreen.style.display = "none";
+    window.location.href="../page/change_floor.html";
+  
 }
 
 
