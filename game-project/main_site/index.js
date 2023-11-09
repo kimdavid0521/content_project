@@ -3,9 +3,9 @@ function load() {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
     const windowWidth = 800; // 원하는 창의 너비
-    const windowHeight = 600; // 원하는 창의 높이
+    const windowHeight = 1000; // 원하는 창의 높이
     const minWidth = 800; // 최소 너비
-    const minHeight = 600; // 최소 높이
+    const minHeight = 1000; // 최소 높이
     const left = (screenWidth - windowWidth) / 2;
     const top = (screenHeight - windowHeight) / 2;
 
