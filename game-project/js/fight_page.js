@@ -5,21 +5,33 @@ const monsters = [
   maxhealth: 200, // 원하는 maxhealth 값으로 변경
   currentHealth: 200,
   damage:10,
-  name: '붉은 눈의 가고일' // 초기 체력 설정
+  character:"../img/monster1.png",
+  ready:"../img/monster1-ready.png",
+  attack:"../img/monster1-attack.png",
+  name: '붉은 눈의 가고일', 
+  bg: "../img/dungeon2.png"
   },
   {
     id:2,
     maxhealth: 500, // 원하는 maxhealth 값으로 변경
     currentHealth: 500,
     damage:20,
-    name: '아카서스'
+    character:"../img/monster1.png",
+    ready:"../img/monster1-ready.png",
+    attack:"../img/monster1-attack.png",
+    name: '아카서스', 
+    bg: "../img/dungeon3.png"
   },
   {
     id:3,
     maxhealth: 800, // 원하는 maxhealth 값으로 변경
     currentHealth: 800,
     damage:30,
-    name: '슬라임 리무르'
+    character:"../img/monster1.png",
+    ready:"../img/monster1-ready.png",
+    attack:"../img/monster1-attack.png",
+    name: '슬라임 리무르', 
+    bg: "../img/dungeon4.png"
   },
 ]
 const monster = document.querySelector("#monster-motion");
@@ -42,17 +54,26 @@ function initMonHealth() {
   let currentMonster = monsters[currentMonsterIndex];
   let maxHealth = currentMonster.maxhealth;
   let currentHealth = currentMonster.currentHealth;
+  document.getElementById('monsterName').textContent = monsters[currentMonsterIndex].name;
+  document.querySelector('.container').style.backgroundImage = `url(${monsters[currentMonsterIndex].bg})`;
   // 여기에서 몬스터 체력바를 초기 설정합니다.
   healthBar.style.width = ((currentHealth / maxHealth) * 100) + '%';
 }
 // Attack 함수 정의
 document.addEventListener("DOMContentLoaded", function () {
-  // 몬스터 이름 초기 설정
-  document.querySelector("#monster-motion").innerHTML = '<img src="../img/monster1.png" alt="대체 텍스트">';
   let currentMonsterIndex = floor - 1;
+
+  // 몬스터 이미지 설정
+  document.querySelector("#monster-motion").innerHTML = `<img src="${monsters[currentMonsterIndex].character}" alt="대체 텍스트">`;
+
+  // 몬스터 이름 설정
   document.getElementById('monsterName').textContent = monsters[currentMonsterIndex].name;
-  
-  initMonHealth(); // 몬스터 체력바 초기 설정 호출
+
+  // 배경 이미지 설정
+  document.querySelector('.container').style.backgroundImage = `url(${monsters[currentMonsterIndex].bg})`;
+
+  // 몬스터 체력바 초기 설정 호출
+  initMonHealth();
 });
 
 
