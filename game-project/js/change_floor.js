@@ -1,42 +1,90 @@
-let characterWhereX = 600;
-let characterWhereY = 600;
+
 const character = document.getElementById('character');
-let x = 600;
-let y = 600;
+let characterX = 160;
+let characterY = 230;
 
     document.addEventListener('keydown', function (event) {
       
-      const speed = 100;
+      const speed = 10;
+      function handleRight() {
+        if (event.key == 'ArrowRight') {
+            characterX += speed;
+        }
+      }
 
-    if (event.key == 'ArrowUp') {
-        if (characterWhereY > 0){
-            y -= speed;
-            characterWhereY = characterWhereY-speed;
+      function handleLeft() {
+        if (event.key == 'ArrowLeft') {
+            characterX -= speed;
+        }
+      }
+      function handleUp() {
+        if (event.key == 'ArrowUp') {
+            characterY -= speed;
+        }
+        
+      }
+      function handleDown() {
+        if (event.key == 'ArrowDown') {
+            characterY += speed;
+        }
+      }
+
+    // if (event.key == 'ArrowUp') {
+    //     if (characterY > 0){
+    //         handleUp();
+    //     }
+    // }
+    // else if (event.key == 'ArrowDown') {
+    //     if (characterY < 290) {
+    //         handleDown();
+    //     }
+    // }
+    // else if (event.key == 'ArrowLeft') {
+    //     if (characterX > 0) {
+    //         handleLeft();
+    //     }
+    // }
+    // else if(event.key == 'ArrowRight') {
+    //     if(characterX < 220) {
+    //         handleRight();
+    //     }
+    // }
+    
+
+    if (characterX <= 220 && characterX >= 110 && characterY >= 220 && characterY < 420) {
+        handleLeft();
+        handleRight();
+        handleUp();
+        handleDown();
+        if(characterX>220){
+            characterX=220;
+        }
+        else if(characterX <110){
+            characterX = 110;
         }
     }
-    else if (event.key == 'ArrowDown') {
-        if (characterWhereY < 1000) {
-            y += speed;
-            characterWhereY = characterWhereY+speed;
+    else if (characterX >= 110 && characterX <= 630 && characterY >= 420 && characterY <= 550) {
+        handleLeft();
+        handleRight();
+        handleUp();
+        handleDown();
+        if(characterX <110){
+            characterX = 110;
         }
-    }
-    else if (event.key == 'ArrowLeft') {
-        if (characterWhereX > 0) {
-            x -= speed;
-            characterWhereX = characterWhereX-speed;
+        else if (characterY >550) {
+            characterY = 550;
         }
-    }
-    else if (event.key == 'ArrowRight') {
-        if( characterWhereX < 1900) {
-            x += speed;
-            characterWhereX = characterWhereX+speed;
+        else if (characterX > 630) {
+            characterX = 630;
         }
     }
     
-      character.style.left = x + 'px';
-      character.style.top = y + 'px';
-      console.log(characterWhereX,characterWhereY);
-      if(characterWhereX===600 && characterWhereY===600){
-        
-      }
+    else if ()
+   
+    
+    
+    
+      character.style.left = characterX + 'px';
+      character.style.top = characterY + 'px';
+      console.log(characterX,characterY);
     });
