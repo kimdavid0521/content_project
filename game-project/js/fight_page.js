@@ -34,9 +34,18 @@ const monsters = [
     bg: "../img/dungeon4.png"
   },
 ]
+let floor =0;
 const monster = document.querySelector("#monster-motion");
-monster.style.w
-let floor = 1 //층수
+let saveFloor = sessionStorage.getItem("층 수")-'0';
+console.log(saveFloor);
+if(saveFloor ===0){
+  floor = 1;
+}
+else if(saveFloor === 1) {floor = 2;}
+ //층수
+sessionStorage.setItem("층 수",floor);
+console.log(saveFloor)
+saveFloor = sessionStorage.getItem("층 수")-'0'
 let isGuarding = false; // 방어 상태를 나타내는 변수
 let isClear = false; //몬스터를 죽였는가를 나타내는 변수
 // 플레이어의 초기 체력 설정
@@ -46,11 +55,10 @@ let potion=10;
 document.querySelector("#potion-amount").innerHTML = potion;
 
 
-restartGame()
 // 몬스터 체력바 초기설정
 function initMonHealth() {
   const healthBar = document.querySelector('.health-bar .health');
-  let currentMonsterIndex = floor - 1;
+  let currentMonsterIndex = saveFloor - 1;
   let currentMonster = monsters[currentMonsterIndex];
   let maxHealth = currentMonster.maxhealth;
   let currentHealth = currentMonster.currentHealth;
@@ -59,9 +67,10 @@ function initMonHealth() {
   // 여기에서 몬스터 체력바를 초기 설정합니다.
   healthBar.style.width = ((currentHealth / maxHealth) * 100) + '%';
 }
-// Attack 함수 정의
+
 document.addEventListener("DOMContentLoaded", function () {
-  let currentMonsterIndex = floor - 1;
+  let saveFloor = sessionStorage.getItem("층 수")-'0';
+  let currentMonsterIndex = saveFloor - 1;
 
   // 몬스터 이미지 설정
   document.querySelector("#monster-motion").innerHTML = `<img src="${monsters[currentMonsterIndex].character}" alt="대체 텍스트">`;
@@ -88,10 +97,12 @@ function updatePlayerHealthBar() {
 function restartGame() {
   // 플레이어의 체력와 모든 상태를 초기 상태로 되돌립니다.
   playerCurrentHealth = playerMaxHealth;
+  sessionStorage.clear();
   floor = 1;
-
+  sessionStorage.setItem("층 수", floor);
+  saveFloor = sessionStorage.getItem("층 수")-'0';
   // 몬스터의 초기 체력을 설정합니다.
-  let currentMonsterIndex = floor - 1;
+  let currentMonsterIndex = saveFloor - 1;
   monsters[currentMonsterIndex].currentHealth = monsters[currentMonsterIndex].maxhealth;
 
   // 몬스터 이름 초기 설정
@@ -107,10 +118,14 @@ function restartGame() {
 }
 
 function moveToNextFloor() {
-  floor++;
-
+  floor+=1;
+  if(sessionStorage.getItem("층 수")!==null){
+    sessionStorage.setItem("층 수",floor);
+    saveFloor = sessionStorage.getItem("층 수")-'0';
+  }
+  else return;
   // 다음 층에 해당하는 몬스터 정보 업데이트
-  let currentMonsterIndex = floor - 1;
+  let currentMonsterIndex = saveFloor - 1;
   if (currentMonsterIndex < monsters.length) {
     monsters[currentMonsterIndex].currentHealth = monsters[currentMonsterIndex].maxhealth;
 
@@ -132,7 +147,8 @@ function moveToNextFloor() {
 function MonsterAttack() {
   // Clear any existing timeout
   clearTimeout(monsterAttackTimeout);
-  let currentMonsterIndex = floor - 1;
+  let saveFloor = sessionStorage.getItem("층 수")-'0'
+  let currentMonsterIndex = saveFloor - 1;
   let currentMonster = monsters[currentMonsterIndex];
   // Schedule the monster's attack
   
@@ -148,12 +164,13 @@ function MonsterAttack() {
       if (isGuarding === true) {
         console.log("공격을 방어하였습니다.");
       }
-      if (playerCurrentHealth < 0) {
+      if (playerCurrentHealth <= 0) {
         playerCurrentHealth = 0;
         let die = confirm("주거버렸으 다시 ㄱ?");
         if (die === true) {
           restartGame();
         }
+        else window.close();
       }
       // 플레이어 체력바 업데이트
       
@@ -194,7 +211,7 @@ let monsterAttackTimeout;
 //여기부터 플레이어 js
 function Attack() {
   const healthBar = document.querySelector('.health-bar .health');
-  let currentMonsterIndex = floor - 1;
+  let currentMonsterIndex = saveFloor - 1;
   const currentMonster = monsters[currentMonsterIndex];
   const maxHealth = currentMonster.maxhealth; // maxHealth를 현재 몬스터의 maxhealth로 설정
   let currentHealth = currentMonster.currentHealth;
@@ -208,16 +225,20 @@ function Attack() {
     // 몬스터가 죽은 경우
     clearTimeout(monsterAttackTimeout);
     healthBar.style.width = ((currentHealth / maxHealth) * 100) + '%';
-    let floorClear = confirm(floor + "층을 클리어 하셨습니다. 다음 층으로 넘어가시겠습니까?");
+    let floorClear = confirm(saveFloor + "층을 클리어 하셨습니다. 다음 층으로 넘어가시겠습니까?");
     if (floorClear === true) {
-       alert((floor+1)+"층으로 입장합니다.")
-       alert("앗! 휴식터로 이동합니다")
+       alert(((saveFloor-'0')+1)+"층으로 입장합니다.")
+       if(saveFloor === 1){
+        alert("앗! 휴식터로 이동합니다")
         setTimeout(function () {
         subGamepage()
       }, 2000);
+       }
+       else moveToNextFloor();
+       
     }
   } else {
-    
+    return;
   }
 }
 
@@ -255,14 +276,10 @@ function Heal() {
 }
 
 function subGamepage(){
-    const splashScreen = document.querySelector(".container");
+  const splashScreen = document.querySelector(".container");
     splashScreen.style.display = "none";
     window.location.href="../page/change_floor.html";
-  
 }
-
-
-
 
 
 
