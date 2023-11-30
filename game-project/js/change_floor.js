@@ -28,27 +28,6 @@ let characterY = 230;
             characterY += speed;
         }
       }
-
-    // if (event.key == 'ArrowUp') {
-    //     if (characterY > 0){
-    //         handleUp();
-    //     }
-    // }
-    // else if (event.key == 'ArrowDown') {
-    //     if (characterY < 290) {
-    //         handleDown();
-    //     }
-    // }
-    // else if (event.key == 'ArrowLeft') {
-    //     if (characterX > 0) {
-    //         handleLeft();
-    //     }
-    // }
-    // else if(event.key == 'ArrowRight') {
-    //     if(characterX < 220) {
-    //         handleRight();
-    //     }
-    // }
     
 
     if (characterX <= 220 && characterX >= 110 && characterY >= 220 && characterY < 420) {
@@ -63,23 +42,25 @@ let characterY = 230;
             characterX = 110;
         }
     }
-    else if (characterX >= 110 && characterX <= 630 && characterY >= 420 && characterY <= 550) {
+    else if (characterX >= 110 && characterX <= 680 && characterY >= 420 && characterY <= 550) {
         handleLeft();
         handleRight();
         handleUp();
         handleDown();
-        if(characterX <110){
+        if(characterX < 110){
             characterX = 110;
         }
-        else if (characterY >550) {
+        else if (characterY > 550) {
             characterY = 550;
         }
-        else if (characterX > 630) {
-            characterX = 630;
+        else if (characterX > 680) {
+            characterX = 680;
         }
+        else if (characterY < 420) {
+          characterY = 420;
+        }
+
     }
-    
-    else if ()
    
     
     
