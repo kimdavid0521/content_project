@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 800px;
+    height: 1000px;
+    background-image: url(../img/final_stage_backgroung.png);
+    background-size: 100% 100%;
+}
+
+.score_section {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.name {
+    font-size: 50px;
+}
+
+.score {
+    font-size: 50px;
+}

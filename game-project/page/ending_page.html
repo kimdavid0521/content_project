@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/ending_page.css">
+    <style>
+        #character {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            top: 600px;
+            left: 350px;
+        }
+    </style>
     <title>Document</title>
 </head>
 <body>
     <div class="container">
+            <img id="character" src="../img/character_img.png">
         <div class="score_section">
             <div class="name">
                 사용자 이름 정보 끌어오기
@@ -14,7 +25,12 @@
             <div class="score">
                 사용자 점수 끌어오기
             </div>
+            <div class="button_lay">
+                <button onclick="movepage()">다시하기</button>
+            </div>
+
         </div>
     </div>
+    <script src="../js/ending_page.js"></script>
 </body>
 </html>
