@@ -26,7 +26,7 @@ const monsters = [
     id:3,
     maxhealth: 800, // 원하는 maxhealth 값으로 변경
     currentHealth: 800,
-    damage:30,
+    damage:20,
     character:"../img/monster1-attack.png",
     ready:"../img/monster1-ready.png",
     attack:"../img/monster1-attack.png",
@@ -37,7 +37,7 @@ const monsters = [
     id:4,
     maxhealth: 1000, // 원하는 maxhealth 값으로 변경
     currentHealth: 1000,
-    damage:30,
+    damage:25,
     character:"../img/monster4-attack.png",
     ready:"../img/monster4-ready.png",
     attack:"../img/monster4-attack.png",
@@ -45,10 +45,10 @@ const monsters = [
     bg: "../img/dungeon4.png"
   },
   {
-    id:4,
+    id:5,
     maxhealth: 1500, // 원하는 maxhealth 값으로 변경
     currentHealth: 1500,
-    damage:20,
+    damage:30,
     character:"../img/monster3-attack.png",
     ready:"../img/monster3-ready.png",
     attack:"../img/monster3-attack.png",
@@ -173,7 +173,7 @@ function moveToNextFloor() {
     
   } else {
     // 모든 층을 클리어한 경우에 대한 처리
-    alert("모든 층을 클리어하였습니다!");
+    window.location.href="../page/final_stage.html";
   }
 }
 //여기까지

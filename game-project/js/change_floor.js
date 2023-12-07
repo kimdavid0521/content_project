@@ -61,11 +61,13 @@ let characterY = 230;
         }
 
     }
-   
-    
-    
-    
       character.style.left = characterX + 'px';
       character.style.top = characterY + 'px';
       console.log(characterX,characterY);
+      if(characterX === 680 &&characterY === 490){
+        alert("포탈에 도착하였습니다. 2층으로 올라갑니다.")
+        setTimeout(function () {
+          window.location.href="../page/fight_page.html";
+        }, 3000); 
+      }
     });

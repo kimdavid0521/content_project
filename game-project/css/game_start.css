@@ -31,8 +31,8 @@ body{
 }
 .start-btn{
     width:80%;
-    background-color: black;
-    height:90px;
+    background-color: transparent;
+    height:300px;
     position:absolute;
     bottom:10%;
 }
