@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const splashScreen = document.querySelector(".splash-screen");
       splashScreen.style.display = "none";
       sessionStorage.clear();
-      window.location.href="../page/game_start.html";
+      window.location.href="../page/start_page.html";
     }, 3000); 
   });
   
