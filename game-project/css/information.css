@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+@font-face{
+    font-family:'DNFForgedBlade';font-style:normal;font-weight:300;
+    src:url('//cdn.df.nexon.com/img/common/font/DNFForgedBlade-Light.otf')format('opentype')}
+.container {
+    width: 800px;
+    height: 1000px;
+    background-image: url(../img/background1.png);
+    background-size: 100% 100%;
+}
