@@ -12,17 +12,14 @@
     background-size: 100% 100%;
 }
 
-.score_section {
-    text-align: center;
-    padding-top: 100px;
-}
+
 
 .name {
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .score {
-    font-size: 50px;
+    font-size: 30px;
 }
 .text{
     font-size:24px;
@@ -30,4 +27,9 @@
 }
 p{
     font-family:'DNFForgedBlade';
+}
+
+.score_section {
+    text-align: center;
+    padding-top: 700px;
 }
