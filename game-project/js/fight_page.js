@@ -5,32 +5,54 @@ const monsters = [
   maxhealth: 200, // 원하는 maxhealth 값으로 변경
   currentHealth: 200,
   damage:10,
-  character:"../img/monster1.png",
-  ready:"../img/monster1-ready.png",
-  attack:"../img/monster1-attack.png",
+  character:"../img/monster5-attack.png",
+  ready:"../img/monster5-ready.png",
+  attack:"../img/monster5-attack.png",
   name: '붉은 눈의 가고일', 
-  bg: "../img/dungeon2.png"
+  bg: "../img/background2.png"
   },
   {
     id:2,
     maxhealth: 500, // 원하는 maxhealth 값으로 변경
     currentHealth: 500,
     damage:20,
-    character:"../img/monster1.png",
-    ready:"../img/monster1-ready.png",
-    attack:"../img/monster1-attack.png",
+    character:"../img/monster2-attack.png",
+    ready:"../img/monster2-ready.png",
+    attack:"../img/monster2-attack.png",
     name: '아카서스', 
-    bg: "../img/dungeon3.png"
+    bg: "../img/background1.png"
   },
   {
     id:3,
     maxhealth: 800, // 원하는 maxhealth 값으로 변경
     currentHealth: 800,
     damage:30,
-    character:"../img/monster1.png",
+    character:"../img/monster1-attack.png",
     ready:"../img/monster1-ready.png",
     attack:"../img/monster1-attack.png",
-    name: '슬라임 리무르', 
+    name: '킹 슬라임', 
+    bg: "../img/dungeon4.png"
+  },
+  {
+    id:4,
+    maxhealth: 1000, // 원하는 maxhealth 값으로 변경
+    currentHealth: 1000,
+    damage:30,
+    character:"../img/monster4-attack.png",
+    ready:"../img/monster4-ready.png",
+    attack:"../img/monster4-attack.png",
+    name: '그린더', 
+    bg: "../img/dungeon4.png"
+  },
+  {
+    id:4,
+    maxhealth: 1500, // 원하는 maxhealth 값으로 변경
+    currentHealth: 1500,
+    damage:20,
+    character:"../img/monster3-attack.png",
+    ready:"../img/monster3-ready.png",
+    attack:"../img/monster3-attack.png",
+    name: '탑의 원혼', 
     bg: "../img/dungeon4.png"
   },
 ]
@@ -38,6 +60,7 @@ let floor =0;
 const monster = document.querySelector("#monster-motion");
 let saveFloor = sessionStorage.getItem("층 수")-'0';
 console.log(saveFloor);
+showLoadingScreen()
 if(saveFloor ===0){
   floor = 1;
 }
@@ -67,9 +90,19 @@ function initMonHealth() {
   // 여기에서 몬스터 체력바를 초기 설정합니다.
   healthBar.style.width = ((currentHealth / maxHealth) * 100) + '%';
 }
+function showLoadingScreen() {
+  // 로딩창을 보여주는 로직을 여기에 구현
+  const loadingScreen = document.getElementById('loading-screen');
+  loadingScreen.style.display = 'block';
+}
+function hideLoadingScreen(){
+  const loadingScreen = document.getElementById('loading-screen');
+  loadingScreen.style.display = 'none';
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-  let saveFloor = sessionStorage.getItem("층 수")-'0';
+document.addEventListener("DOMContentLoaded", async function() {
+  
+  let saveFloor = sessionStorage.getItem("층 수") - '0';
   let currentMonsterIndex = saveFloor - 1;
 
   // 몬스터 이미지 설정
@@ -82,7 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector('.container').style.backgroundImage = `url(${monsters[currentMonsterIndex].bg})`;
 
   // 몬스터 체력바 초기 설정 호출
-  initMonHealth();
+  await initMonHealth();
+
+  hideLoadingScreen();
 });
 
 
@@ -143,9 +178,21 @@ function moveToNextFloor() {
 }
 //여기까지
 
-
+const hit = document.querySelector('.hit-detection');
 function MonsterAttack() {
   // Clear any existing timeout
+  function closeHit()
+    {
+        hit.style.display = "none"
+    }
+  function showHit()
+    { 
+        hit.style.display = "block"
+        console.log("쳐맞")
+        setTimeout(function(){closeHit()} ,500)
+    }
+    
+
   clearTimeout(monsterAttackTimeout);
   let saveFloor = sessionStorage.getItem("층 수")-'0'
   let currentMonsterIndex = saveFloor - 1;
@@ -156,9 +203,11 @@ function MonsterAttack() {
     monsterAttackTimeout = setTimeout(function() {
       // 몬스터의 공격 로직
       console.log("공격모션")
+      
 
       if (isGuarding === false) {
         playerCurrentHealth -= currentMonster.damage;
+        showHit()
         console.log("몬스터가 플레이어에게 " + currentMonster.damage + "의 데미지를 입혔습니다.");
       }
       if (isGuarding === true) {
@@ -173,8 +222,7 @@ function MonsterAttack() {
         else window.close();
       }
       // 플레이어 체력바 업데이트
-      
-      document.querySelector("#monster-motion").innerHTML = '<img src="../img/monster1-attack.png" alt="대체 텍스트">';
+      document.querySelector("#monster-motion").innerHTML = `<img src="${monsters[currentMonsterIndex].character}" alt="대체 텍스트">`;
       updatePlayerHealthBar();
       
     }, 500);
@@ -186,7 +234,7 @@ function MonsterAttack() {
   // 몬스터가 공격하기 0.5초 전에 알림
   console.log("몬스터가 공격합니다!");
   
-  document.querySelector("#monster-motion").innerHTML = '<img src="../img/monster1-ready.png" alt="대체 텍스트">';
+  document.querySelector("#monster-motion").innerHTML = `<img src="${monsters[currentMonsterIndex].ready}" alt="대체 텍스트">`;
 }
 
 // 몬스터 공격 간격 설정
@@ -209,6 +257,15 @@ setMonsterAttackInterval();
 
 let monsterAttackTimeout;
 //여기부터 플레이어 js
+const atkEffect = document.querySelector('.atk-effect');
+function D_atkMotion(){
+  atkEffect.style.display = 'none';
+}
+function atkMotion(){
+  
+  atkEffect.style.display = 'flex';
+  setTimeout(function(){D_atkMotion()} ,70)
+}
 function Attack() {
   const healthBar = document.querySelector('.health-bar .health');
   let currentMonsterIndex = saveFloor - 1;
@@ -220,7 +277,8 @@ function Attack() {
   const reductionPercentage = (reductionAmount / maxHealth) * 100;
   currentHealth -= (maxHealth * reductionPercentage) / 100;
   healthBar.style.width = ((currentHealth / maxHealth) * 100) + '%';
-    currentMonster.currentHealth = currentHealth;
+  currentMonster.currentHealth = currentHealth;
+  atkMotion();
   if (currentHealth <= 0) {
     // 몬스터가 죽은 경우
     clearTimeout(monsterAttackTimeout);
@@ -257,7 +315,6 @@ function Guard() {
     isGuarding = false; // 방어 종료
     console.log("플레이어의 방어가 종료되었습니다.");
   }, 300);
-  
 }
 
 function Heal() {

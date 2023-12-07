@@ -24,19 +24,19 @@ body{
 
 /* 몬스터 css */
 #monster-motion img {
-    max-width: 100%; 
+    min-width: 100%; 
+    min-height:100%;
 }
 
 .monster{
-    width: 150px;
-    height: 200px;
+    width: 350px;
+    height: 400px;
     background-color: transparent;
     position: fixed;
-    top: 30%;
-    right: 45%;
+    top: 15%;
+    right: 40%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .health-bar {
@@ -143,3 +143,23 @@ body{
     text-align: center;
 }
 /* 여기까지 */
+.hit-detection{
+    width: 100vw;
+    height:100vh;
+    z-index :2;
+    position: absolute;
+    background-color: rgba(255,0,0,0.3);
+    display:none;
+}
+.atk-effect{
+    position:relative;
+    z-index:10;
+    width:180px;
+    top:180px;
+    right:20px;
+    height :150px;
+    display:none;
+    justify-content:center;
+    align-item:center;
+    opacity:0.7;
+}

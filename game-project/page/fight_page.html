@@ -4,21 +4,40 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/fight_page.css">
-        
-        
-        
         <title>타임어택 : 시간의 전투</title>
-        
+        <style>
+            #loading-screen {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+              }
+              #loading-text {
+                color: white;
+                font-size: 24px;
+              }
+        </style>
     </head>
     <body>
         <div class="container">
             <audio controls autoplay style="display: none;">
                 <source src="../audio/dungeon-sound.mp3" type="audio/mpeg">
             </audio>
+            <div class="hit-detection"></div>
+            <div id="loading-screen" style="display: none;">
+                <div id="loading-text">Loading...</div>
+              </div>
             <p style="margin: 30px; font-size: 36px; font-weight: 300; color:white;" id="monsterName"></p>
             <div class="health-bar">
                 <div class="health"></div>
             </div>
+            <div class="atk-effect"><img src="../skills/effect1.png" alt="얍"></div>
             <div class="monster" id="monster-motion"></div>
             <div class="action">
                 <div class="character">
@@ -40,15 +59,10 @@
                         <button onclick="Guard()" class="btn-action" id="guard">방어하기</button>
                     </div>
                 </div>
-                <div class="skill-box">
-                    <p style="color: white; margin:20px">액티브</p>
-                    <button class="skill"></button>
-                </div>
                 
             </div> 
         </div>
         <script src="../js/fight_page.js"></script>
-        <script src="../js/change_floor.js"></script>
     </body>
     
 </html>
