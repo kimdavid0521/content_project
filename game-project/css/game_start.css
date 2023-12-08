@@ -42,6 +42,11 @@ body{
     100% { opacity: 1; }
   }
   
-  .logo-title, .start-img {
+@keyframes fadeout {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+  }
+ .start-img {
     animation: blink 1.5s infinite;
   }

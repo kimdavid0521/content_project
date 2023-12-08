@@ -2,12 +2,34 @@
     margin: 0;
     padding: 0;
 }
+
 @font-face{
     font-family:'DNFForgedBlade';font-style:normal;font-weight:300;
     src:url('//cdn.df.nexon.com/img/common/font/DNFForgedBlade-Light.otf')format('opentype')}
+@keyframes fadein {
+    0% { opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
 .container {
-    width: 800px;
-    height: 1000px;
+    width: 100vw;
+    height: 100vh;
     background-image: url(../img/background1.png);
     background-size: 100% 100%;
+    overflow:hidden;
+    animation: fadein 1.5s;
+}
+.text_talk{
+    position:absolute;
+    bottom: 0%;
+    color:white;
+    width:600px;
+    height:180px;
+    left:7%;
+}
+.name{
+    position:absolute;
+    left:150px;
+    bottom:25%;
 }
