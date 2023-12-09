@@ -9,7 +9,7 @@ const monsters = [
   ready:"../img/monster5-ready.png",
   attack:"../img/monster5-attack.png",
   name: '붉은 눈의 가고일', 
-  bg: "../img/background2.png"
+  bg: "../img/background1.png"
   },
   {
     id:2,
@@ -31,7 +31,7 @@ const monsters = [
     ready:"../img/monster1-ready.png",
     attack:"../img/monster1-attack.png",
     name: '킹 슬라임', 
-    bg: "../img/dungeon4.png"
+    bg: "../img/background2.png"
   },
   {
     id:4,
@@ -42,7 +42,7 @@ const monsters = [
     ready:"../img/monster4-ready.png",
     attack:"../img/monster4-attack.png",
     name: '그린더', 
-    bg: "../img/dungeon4.png"
+    bg: "../img/background2.png"
   },
   {
     id:5,
@@ -53,7 +53,7 @@ const monsters = [
     ready:"../img/monster3-ready.png",
     attack:"../img/monster3-attack.png",
     name: '탑의 원혼', 
-    bg: "../img/dungeon4.png"
+    bg: "../img/background3.png"
   },
 ]
 let floor =0;

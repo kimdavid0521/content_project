@@ -59,32 +59,41 @@ body{
 /* 플레이어 css */
 .action{
     position: fixed;
-    height: 25%;
-    left: 25%;
-    bottom: 3%;
-    width: 50%;
+    height: 100%;
+    top: 0%;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    background: linear-gradient(170deg, #140202 30%, #300202 90%, #4d0101);
+    background-image:url(../img/UI_main1.png);
     border-radius: 20px;
     align-items: center;
+    flex-direction:column;
+    justify-content:flex-end;
+    background-size: 100% 100%;
 }
 .action-and-info{
-    width: 60%;
-    height: 100%;
+    width: 80%;
+    height: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
+    position:relative;
+    left:10%;
+    bottom:3%;
 }
 
 .btn-action{
-    background-color: black;
-    color: red;
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
+    width: 100%;
+    height: 70px;
+    background-color:transparent;
+    border:none;
+    position:relative;
 }
+
+.btn-action img{
+    max-width: 100%;
+    min-height:100%;
+}
+
 .character {
     width: 20%;
     height: 90%;
@@ -101,8 +110,10 @@ body{
   }
   
 .char-health {
-    
-    width: 100%;
+    left:19%;
+    position:relative;
+    width: 72%;
+    bottom:23%;
     height: 30px;
     border: 1px solid #000;
     border-radius: 7px;
@@ -111,22 +122,28 @@ body{
 .heal{
     display: flex;
     text-align: center;
-    width: 70%;
+    width: 40%;
     justify-content: space-evenly;
     align-items: center;
     color: white;
+    position:relative;
+    left:10%;
+    bottom:20px;
 }
 
 .potion{
-    width: 100px;
+    width: 60px;
     height: 60px;
-    background-color: white;
+    background-color: transparent;
 }
 
 .atk-or-def{
+    position:absolute;
+    bottom:5%;
     display: flex;
-    width: 70%;
+    width: 80%;
     justify-content: space-evenly;
+    left:15%;
 }
 .skill{
     width: 100%;

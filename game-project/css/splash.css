@@ -17,11 +17,12 @@
     font-weight: normal;
     font-style: normal;
 }
-
+*{
+  margin:0;
+  padding:0;
+}
 html, body {
     background-color: #d6eec8;
-    margin: 0;
-    padding: 0;
     width: 100%; height: 100%;
     overflow: hidden;
   }

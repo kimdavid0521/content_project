@@ -1,26 +1,17 @@
 function load() {
     const setGame = "../page/splash.html";
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
     const windowWidth = 800; // 원하는 창의 너비
     const windowHeight = 1000; // 원하는 창의 높이
-    const minWidth = 800; // 최소 너비
-    const minHeight = 1000; // 최소 높이
-    const left = (screenWidth - windowWidth) / 2;
-    const top = (screenHeight - windowHeight) / 2;
+    const left = (window.screen.width - windowWidth) / 2;
+    const top = (window.screen.height - windowHeight) / 2;
 
-    window.open(setGame, "myWin", `left=${left},top=${top},width=${windowWidth},height=${windowHeight},resizable=no`);
-
-    // 창 크기 변경 이벤트를 감지하여 최소 크기 적용
-    newWin.addEventListener('resize', function () {
-        const currentWidth = newWin.innerWidth;
-        const currentHeight = newWin.innerHeight;
-
-        if (currentWidth < minWidth ) {
-            newWin.resizeTo(minWidth, currentHeight);
-        }
-        if (currentHeight < minHeight) {
-            newWin.resizeTo(currentWidth, minHeight);
-        }
+    // 새로운 이름으로 창을 열도록 수정
+    const windowName = `myWin_${Date.now()}`;
+    const newWindow = window.open(setGame, windowName, `left=${left},top=${top},width=${windowWidth},height=${windowHeight},resizable=no`);
+    newWindow.addEventListener("DOMContentLoaded", function () {
+        newWindow.resizeTo(600,1000)
+        console.log(newWindow.innerWidth)
+        console.log(newWindow.outerWidth)
     });
+
 }
