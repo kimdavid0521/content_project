@@ -1,5 +1,5 @@
 function load() {
-    const setGame = "../page/splash.html";
+    const setGame = "../page/splash_page.html";
     const windowWidth = 800; // 원하는 창의 너비
     const windowHeight = 1000; // 원하는 창의 높이
     const left = (window.screen.width - windowWidth) / 2;
