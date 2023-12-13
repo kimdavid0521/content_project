@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'DOSGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wrapper{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 60px;
+}
+
+.item-lists{
+  /*화면에 띄우는 필요 요소 전체 적용 css
+  1. 게임 로고
+  2. 사용자 입력값 받는 창
+  3. 게임 스타트 버튼
+    >활성화 / 비활성화<js
+    >활성화 후 onclick 시 fight-page.로 연결<*/
+ /* display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 60px;*/
+}
+
+.start-screen{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #9bb188;
+  background-image: url(../img/startbackground.png);
+  background-position: center center;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+.contents{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  color: #2e3c22;
+  text-align: center;
+}
+
+.gamelogo{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  image src: url(../img/logo.png);
+}
+
+/*.contents a:hover{
+  background-color: grey;
+} 게임시작 로고 마우스 올라갔을때 비활성화 적용 가능확인*/
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+}
+
+footer{
+  /*height 지정 시 footer에서 비율때문에 잘 안먹을 수 있으니 그냥 padding으로 쓰기*/
+    padding: 30px 0;
+    background: #333;
+    color: #fff;
+    position : relative;
+    /*transform : translateY(-100%);*/
+    left: 0; width: 100%; bottom: 0;
+  }
+
+ h5 {
+    font-family: 'DOSGothic';
+    font-size: 11px;
+  }
+
+  h1{
+    font-family: 'DOSGothic';
+    font-size: 30px;
+  }
+
+  p{
+    font-family: 'DOSGothic';
+    font-size: 18px;
+  }
+
+  label{
+    font-family: 'DOSGothic';
+    font-size: 20px;
+  }
