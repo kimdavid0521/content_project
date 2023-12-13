@@ -13,10 +13,14 @@
         .text_talk {
             color: "white";
             transition: opacity 1s ease-in-out;
+            font-size: 20px;
         }
         .name {
             color: "white";
             transition: opacity 1s ease-in-out;
+            font-size: 40px;
+            margin-left: -30px;
+            margin-bottom: -10px;
         }
     </style>
     <title>Document</title>
@@ -24,8 +28,8 @@
 <body>
     <div class="container">
         <img id="img" src="../img/UI_talk.png" alt="Image 1" width="100%" height="100%">
-        <div class="name">
-            김태영
+        <div id="username" class="name">
+            
         </div>
         <div class="text_talk">
             여기인가... 요즘 마물이 출현하고 있다는 곳이
@@ -34,6 +38,8 @@
         
     </div>
     <script>
+       const username = localStorage.getItem("name");
+       document.getElementById("username").innerHTML=username;
        document.addEventListener('DOMContentLoaded', function () {
             let i = 0;
             let repeatCount = 0;

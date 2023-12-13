@@ -6,7 +6,7 @@ const Start = () => {
 
     startImg.style.animation = 'fadeout 1.5s';
     startImg.addEventListener('animationend', () => {
-        window.location.href="../page/information_page.html";
+        window.location.href="../page/start_page.html";
     });
     
 }
