@@ -1,7 +1,7 @@
 
 const character = document.getElementById('character');
 let characterX = 160;
-let characterY = 230;
+let characterY = 70;
 
     document.addEventListener('keydown', function (event) {
       
@@ -30,7 +30,7 @@ let characterY = 230;
       }
     
 
-    if (characterX <= 220 && characterX >= 110 && characterY >= 220 && characterY < 420) {
+    if (characterX <= 220 && characterX >= 110 && characterY >= 50 && characterY < 420) {
         handleLeft();
         handleRight();
         handleUp();
@@ -42,7 +42,7 @@ let characterY = 230;
             characterX = 110;
         }
     }
-    else if (characterX >= 110 && characterX <= 680 && characterY >= 420 && characterY <= 550) {
+    else if (characterX >= 110 && characterX <= 710 && characterY >= 420 && characterY <= 550) {
         handleLeft();
         handleRight();
         handleUp();
@@ -53,8 +53,8 @@ let characterY = 230;
         else if (characterY > 550) {
             characterY = 550;
         }
-        else if (characterX > 680) {
-            characterX = 680;
+        else if (characterX > 710) {
+            characterX = 710;
         }
         else if (characterY < 420) {
           characterY = 420;
@@ -64,7 +64,7 @@ let characterY = 230;
       character.style.left = characterX + 'px';
       character.style.top = characterY + 'px';
       console.log(characterX,characterY);
-      if(characterX === 680 &&characterY === 490){
+      if(characterX === 710 && (characterY === 460 || characterY === 470)){
         alert("포탈에 도착하였습니다. 2층으로 올라갑니다.")
         setTimeout(function () {
           window.location.href="../page/fight_page.html";
